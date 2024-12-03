@@ -1,0 +1,23 @@
+<h2>Intrusion Logs</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Source IP</th>
+            <th>Destination IP</th>
+            <th>Protocol</th>
+            <th>Packet Size</th>
+            <th>Prediction</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for log in logs %}
+        <tr style="{% if log.prediction == 'Intrusion' %}background-color: red; color: white;{% endif %}">
+            <td>{{ log.src_ip }}</td>
+            <td>{{ log.dst_ip }}</td>
+            <td>{{ log.protocol }}</td>
+            <td>{{ log.packet_size }}</td>
+            <td>{{ log.prediction }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
